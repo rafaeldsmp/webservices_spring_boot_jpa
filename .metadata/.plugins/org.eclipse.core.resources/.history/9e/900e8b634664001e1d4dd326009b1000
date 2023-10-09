@@ -1,0 +1,12 @@
+package com.github.example.resources.exceptions;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+
+@ControllerAdvice
+public class ResourceExceptionHandler {  //nessa classe iremos dar o tratamento manual dos erros
+
+	public ResponseEntity<StandardError> resourceNotfound(ResourceNotFoundException e, HttpServledRequest request){ //1º tratamento é do ResourceNotFoundException
+
+	}
+}

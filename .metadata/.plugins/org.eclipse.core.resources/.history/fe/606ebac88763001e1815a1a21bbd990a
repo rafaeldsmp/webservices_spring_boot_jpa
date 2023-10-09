@@ -1,0 +1,16 @@
+package com.github.example.entities;
+
+import java.time.Instant;
+
+import jakarta.persistence.OneToOne;
+
+public class Payment {
+
+	private Long id;
+	private Instant moment;
+	
+	@OneToOne
+	private Order order;
+	
+	
+}

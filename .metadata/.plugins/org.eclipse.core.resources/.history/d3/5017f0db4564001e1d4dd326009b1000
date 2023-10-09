@@ -1,0 +1,5 @@
+package com.github.example.resources.exceptions;
+
+public class ResourceExceptionHandler {
+
+}

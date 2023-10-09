@@ -1,0 +1,24 @@
+package com.github.example.resources.exceptions;
+
+import java.time.Instant;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import com.github.example.services.exceptions.ResourceNotFoundException;
+
+import jakarta.servlet.http.HttpServletRequest;
+
+@ControllerAdvice
+public class ResourceExceptionHandler {  //nessa classe iremos dar o tratamento manual dos erros
+
+	//com essa anotation está falando que o método Resource irá interceptar e irá fazer o tratamento que está dentro
+	@ExceptionHandler(ResourceNotFoundException.class) //anotation para ser capaz der interceptar a requisição que deu a exceção para cair aqui
+	public ResponseEntity<StandardError> resourceNotfound(ResourceNotFoundException e, HttpServletRequest request){ //1º tratamento é do ResourceNotFoundException
+		String error = "Resource not found";
+		HttpStatus status = HttpStatus.NOT_FOUND;
+		StandardError err = new StandardError(Instant.now(), status.value(), error, e.getMessage(), request.getRequestURI());
+	}
+}

@@ -1,0 +1,5 @@
+package com.github.example.services.exceptions;
+
+public class ResourceNotFoundException {
+
+}

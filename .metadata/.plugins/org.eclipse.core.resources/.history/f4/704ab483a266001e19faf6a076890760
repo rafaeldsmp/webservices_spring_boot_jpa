@@ -1,0 +1,11 @@
+package com.github.example.services.exceptions;
+
+public class ResourceNotFoundException extends RuntimeException{
+
+	private static final long serialVersionUID = 1L;
+	
+	public ResourceNotFoundException(Object id) { //o construtor vai receber o object id, vai passar o iid do objeto que tentou encontrar e não encontrou e irá lançar a exceção
+		super("Resource not found. id " + id);
+	}
+
+}

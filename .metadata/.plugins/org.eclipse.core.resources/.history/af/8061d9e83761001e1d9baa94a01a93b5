@@ -1,0 +1,11 @@
+package com.github.example.repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.github.example.entities.OrderItem;
+import com.github.example.entities.pk.OrderItemPK;
+
+//@Repository é opcional pois já está extendendo de JpaRepository
+public interface OrderItemRepository extends JpaRepository<OrderItem, OrderItemPK>{  //operações para se trabalhar com usuário como inserir e etc
+
+}

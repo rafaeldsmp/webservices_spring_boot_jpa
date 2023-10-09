@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="true"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value="User entity = repository.getReferenceById(id);"/>
+		<list key="findhistory">
+			<item value="User entity = repository.getReferenceById(id);"/>
+			<item value="productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));"/>
+			<item value="&#x0D;&#x0A;&#x09;&#x09;OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice());&#x0D;&#x0A;&#x09;&#x09;OrderItem oi2 = new OrderItem(o1, p3, 1, p3.getPrice());&#x0D;&#x0A;&#x09;&#x09;OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice());&#x0D;&#x0A;&#x09;&#x09;OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice()); &#x0D;&#x0A;&#x09;&#x09;&#x0D;&#x0A;&#x09;&#x09;orderItemRepository.saveAll(Arrays.asList(oi1,oi2,oi3,oi4));&#x0D;&#x0A;&#x09;&#x09;"/>
+			<item value="Category"/>
+			<item value="Order"/>
+			<item value="User"/>
+		</list>
+		<list key="replacehistory">
+			<item value="Product"/>
+			<item value="Category"/>
+			<item value="Order"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="716"/>
+		<item key="DIALOG_Y_ORIGIN" value="167"/>
+		<item key="DIALOG_WIDTH" value="511"/>
+		<item key="DIALOG_HEIGHT" value="523"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

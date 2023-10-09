@@ -1,0 +1,68 @@
+package com.github.example.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.stereotype.Service;
+
+import com.github.example.entities.User;
+import com.github.example.repositories.UserRepository;
+import com.github.example.services.exceptions.ResourceNotFoundException;
+
+@Service
+public class UserService { // para evitar ter um serviço para implementar as regras de negócios ou
+							// orquestrão de repository que seja necessário
+	// desvantagem muitas operações em que a camada de serviço vai só repassar para
+	// o repository a chamada de algo
+
+	@Autowired
+	private UserRepository repository;
+
+	public List<User> findAll() {
+		return repository.findAll();
+	}
+
+	public User findById(Long id) {
+		Optional<User> obj = repository.findById(id);
+		//return obj.get(); // operação get do optional vai retornar o objeto do tipo user que estiver
+							// dentro do optional
+		//o .get dava exceção 500 caso o use não era encontrado
+		
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));  //vai tentar dar o get, se não tiver usuário vai dar a exceção
+		
+	
+	}
+
+	public User insert(User obj) {
+		return repository.save(obj);
+	}
+	
+	public void delete(Long id) {
+		//repository.deleteById(id); 
+		//tratando exceção:
+		try {
+			if(!repository.existsById(id)) throw new ResourceNotFoundException(id);
+			repository.deleteById(id);
+		} catch (EmptyResultDataAccessException e) { //gitpo generico de erro de execução
+			//e.printStackTrace(); //só para ver o tipo de exceção que foi lançada
+			throw new ResourceNotFoundException(id);
+		}
+		catch (RuntimeException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public User update (Long id, User obj) {//long id para indicar qual usuário do bando de dados vai atualizar, e também o objeto user contendo os dados a ser atualizados
+		User entity = repository.getReferenceById(id);
+		updateData(entity, obj);
+		return repository.save(entity);
+	}
+
+	private void updateData(User entity, User obj) {
+		entity.setName(obj.getName());
+		entity.setEmail(obj.getEmail());
+		entity.setPhone(obj.getPhone());
+	}
+}
