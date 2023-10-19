@@ -47,7 +47,7 @@ This is a Java Spring Boot project demonstrating the integration of Spring Boot 
         "phone": "new phone",
         "password": "new password"
     }`
-   - **Delete User:** `DELETE /User/{id}`
+   - **Delete User:** `DELETE /users/{id}`
 
 ### Additional Notes
 
